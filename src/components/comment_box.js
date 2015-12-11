@@ -3,15 +3,19 @@
 import React from 'react';
 import CommentForm from './comment_form';
 import CommentList from './comment_list';
+import type { Comment } from '../types';
+
+let count: number = 0;
 
 export default class CommentBox extends React.Component {
   constructor() {
     super();
-    this.state = { data: [] };
+    this.state = { comments: [] };
   }
 
-  handleCommentSubmit(comment) {
-    this.setState({ data: this.state.data.concat(comment) });
+  handleCommentSubmit(comment: Comment) {
+    comment.id = ++count;
+    this.setState({ comments: this.state.comments.concat(comment) });
   }
 
   render():ReactElement {
@@ -19,7 +23,7 @@ export default class CommentBox extends React.Component {
       <div className="commentBox">
         <h1>Comments</h1>
         <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this)} />
-        <CommentList data={this.state.data} />
+        <CommentList comments={this.state.comments} />
       </div>
     );
   }
