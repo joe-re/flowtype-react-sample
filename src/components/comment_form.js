@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 
 export default class CommentForm extends React.Component {
@@ -6,15 +8,15 @@ export default class CommentForm extends React.Component {
     this.state = { author: '', text: '' };
   }
 
-  handleAuthorChange(e) {
+  handleAuthorChange(e: any) {
     this.setState({ author: e.target.value });
   }
 
-  handleTextChange(e) {
+  handleTextChange(e: any) {
     this.setState({ text: e.target.value });
   }
 
-  handleSubmit(e) {
+  handleSubmit(e: any) {
     e.preventDefault();
     const author = this.state.author.trim();
     const text = this.state.text.trim();
@@ -25,7 +27,7 @@ export default class CommentForm extends React.Component {
     this.setState({ author: '', text: '' });
   }
 
-  render() {
+  render(): ReactElement {
     return (
       <form className="commentForm" onSubmit={this.handleSubmit.bind(this)}>
         <input

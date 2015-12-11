@@ -1,7 +1,9 @@
+/* @flow */
+
 import React from 'react';
 
 export default class CommentItem extends React.Component {
-  render() {
+  render(): ReactElement {
     return (
       <div className="comment">
         <h2 className="commentAuthor">

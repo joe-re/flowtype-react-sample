@@ -1,8 +1,10 @@
+/* @flow */
+
 import React from 'react';
 import CommentItem from './comment_item';
 
 export default class CommentList extends React.Component{
-  render() {
+  render(): ReactElement {
     const commentNodes = this.props.comments.map((comment) => {
       return (
         <CommentItem author={comment.author} key={comment.id}>
