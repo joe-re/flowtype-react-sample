@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class CommentForm extends React.Component {
   constructor() {
@@ -47,3 +47,7 @@ export default class CommentForm extends React.Component {
     );
   }
 }
+
+CommentForm.propTypes = {
+  onCommentSubmit: PropTypes.func.isRequired
+};

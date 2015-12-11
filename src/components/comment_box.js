@@ -7,7 +7,11 @@ import type { Comment } from '../types';
 
 let count: number = 0;
 
-export default class CommentBox extends React.Component {
+type State = {
+  comments: Array<Comment>;
+};
+
+export default class CommentBox extends React.Component<{}, {}, State> {
   constructor() {
     super();
     this.state = { comments: [] };
@@ -18,7 +22,7 @@ export default class CommentBox extends React.Component {
     this.setState({ comments: this.state.comments.concat(comment) });
   }
 
-  render():ReactElement {
+  render(): ReactElement {
     return(
       <div className="commentBox">
         <h1>Comments</h1>
