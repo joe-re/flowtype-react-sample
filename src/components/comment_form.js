@@ -1,8 +1,18 @@
 /* @flow */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+
+type State = {
+  author: string;
+  text: string;
+}
 
 export default class CommentForm extends React.Component {
+  state: State;
+  props: {
+    onCommentSubmit: Function;
+  };
+
   constructor() {
     super();
     this.state = { author: '', text: '' };
@@ -47,7 +57,3 @@ export default class CommentForm extends React.Component {
     );
   }
 }
-
-CommentForm.propTypes = {
-  onCommentSubmit: PropTypes.func.isRequired
-};

@@ -11,7 +11,9 @@ type State = {
   comments: Array<Comment>;
 };
 
-export default class CommentBox extends React.Component<{}, {}, State> {
+export default class CommentBox extends React.Component {
+  state: State;
+
   constructor() {
     super();
     this.state = { comments: [] };
@@ -26,7 +28,7 @@ export default class CommentBox extends React.Component<{}, {}, State> {
     return(
       <div className="commentBox">
         <h1>Comments</h1>
-        <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this)} />
+        <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this)}/>
         <CommentList comments={this.state.comments} />
       </div>
     );
